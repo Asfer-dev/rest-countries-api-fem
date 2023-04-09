@@ -5,7 +5,6 @@ import Countries from "./components/Countries";
 import Details from "./components/Details";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
