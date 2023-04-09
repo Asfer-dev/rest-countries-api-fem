@@ -5,6 +5,7 @@ import Countries from "./components/Countries";
 import Details from "./components/Details";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
+import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -26,10 +27,13 @@ function App() {
     borders: [],
   });
 
+  const [isLoading, setLoading] = useState(false);
+
   const fields =
     "languages,capital,name,flags,population,region,subregion,tld,currencies,languages,borders";
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         `https://restcountries.com/v3.1/independent?status=true&fields=${fields}`
@@ -37,6 +41,7 @@ function App() {
       .then((response) => {
         const data = response.data;
         setCountriesArray(data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -55,6 +60,8 @@ function App() {
               countriesArray={countriesArray}
               setCountriesArray={setCountriesArray}
               setActiveCountry={setActiveCountry}
+              isLoading={isLoading}
+              setLoading={setLoading}
             />
           }
         />
@@ -65,6 +72,7 @@ function App() {
               activeCountry={activeCountry}
               setActiveCountry={setActiveCountry}
               darkMode={darkMode}
+              setLoading={setLoading}
             />
           }
         />

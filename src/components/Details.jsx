@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const Details = ({ activeCountry, setActiveCountry, darkMode }) => {
+const Details = ({ activeCountry, setActiveCountry, darkMode, setLoading }) => {
   const {
     flagImg,
     flagAlt,
@@ -20,6 +20,7 @@ const Details = ({ activeCountry, setActiveCountry, darkMode }) => {
   } = activeCountry;
 
   const handleClick = (code) => {
+    setLoading(true);
     const fields =
       "languages,capital,name,flags,population,region,subregion,tld,currencies,languages,borders";
     const url = "https://restcountries.com/v3.1/alpha/";
@@ -41,6 +42,7 @@ const Details = ({ activeCountry, setActiveCountry, darkMode }) => {
         borders: data.borders,
       };
       setActiveCountry(country);
+      setLoading(false);
     });
   };
 

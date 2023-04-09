@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const InputArea = ({ setCountriesArray }) => {
+const InputArea = ({ setCountriesArray, setLoading }) => {
   const [inputName, setInputName] = useState("");
 
   const [regFilter, setRegFilter] = useState("");
@@ -10,6 +10,7 @@ const InputArea = ({ setCountriesArray }) => {
     "languages,capital,name,flags,population,region,subregion,tld,currencies,languages,borders";
 
   useEffect(() => {
+    setLoading(true);
     let url;
     if (regFilter !== "")
       url = `https://restcountries.com/v3.1/region/${regFilter}`;
@@ -20,6 +21,7 @@ const InputArea = ({ setCountriesArray }) => {
       .get(url)
       .then(async (response) => {
         await setCountriesArray(response.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -27,6 +29,7 @@ const InputArea = ({ setCountriesArray }) => {
   }, [regFilter]);
 
   const handleChange = (e) => {
+    setLoading(true);
     setInputName(e.target.value);
     let url;
     if (e.target.value.length > 1) {
@@ -39,6 +42,7 @@ const InputArea = ({ setCountriesArray }) => {
       .get(url)
       .then(async (response) => {
         await setCountriesArray(response.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);

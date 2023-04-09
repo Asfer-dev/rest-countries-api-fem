@@ -57,10 +57,33 @@ const Card = ({
   );
 };
 
-const Countries = ({ countriesArray, setCountriesArray, setActiveCountry }) => {
+const Countries = ({
+  countriesArray,
+  setCountriesArray,
+  setActiveCountry,
+  isLoading,
+  setLoading,
+}) => {
+  if (isLoading) {
+    return (
+      <div>
+        <InputArea
+          setCountriesArray={setCountriesArray}
+          setLoading={setLoading}
+        />
+        <div className="container flex justify-center">
+          <h1 className="text-2xl font-semibold">Loading...</h1>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <InputArea setCountriesArray={setCountriesArray} />
+      <InputArea
+        setCountriesArray={setCountriesArray}
+        setLoading={setLoading}
+      />
       <div className="countries-container container grid md:grid-cols-2 lg:grid-cols-4 gap-16 justify-center items-center content-center">
         {countriesArray &&
           countriesArray.map((c) => {
