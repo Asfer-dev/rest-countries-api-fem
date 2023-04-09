@@ -106,7 +106,7 @@ const Details = ({
               </p>
               <p>
                 <b>Population: </b>
-                {population}
+                {population.toLocaleString()}
               </p>
               <p>
                 <b>Region: </b>

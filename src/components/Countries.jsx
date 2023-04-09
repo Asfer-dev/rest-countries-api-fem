@@ -41,7 +41,7 @@ const Card = ({
           <h1 className="mb-4 text-lg font-extrabold">{name}</h1>
           <p className="text-sm mb-1">
             <b>Population: </b>
-            {population}
+            {population.toLocaleString()}
           </p>
           <p className="text-sm mb-1">
             <b>Region: </b>
