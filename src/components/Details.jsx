@@ -20,7 +20,7 @@ const Details = ({
     subRegion,
     capital,
     domain,
-    currencies,
+    currency,
     lang,
     borders,
   } = activeCountry;
@@ -41,7 +41,7 @@ const Details = ({
         capital: data.capital[0],
         flagImg: data.flags.png,
         flagAlt: data.flags.alt,
-        nativeName: data.name.nativeName.eng,
+        nativeName: data.name.nativeName,
         lang: data.languages,
         currency: data.currencies,
         domain: data.tld[0],
@@ -101,7 +101,8 @@ const Details = ({
             <div className="mb-6">
               <p>
                 <b>Native Name: </b>
-                {name}
+                {Object.values(nativeName).length >= 1 &&
+                  Object.values(nativeName)[0].common}
               </p>
               <p>
                 <b>Population: </b>
@@ -127,11 +128,12 @@ const Details = ({
               </p>
               <p>
                 <b>Currencies: </b>
-                {currencies}
+                {Object.values(currency).length >= 1 &&
+                  Object.values(currency)[0].name}
               </p>
               <p>
                 <b>Languages: </b>
-                {console.log(lang)}
+                {Object.values(lang).map((l) => l + ", ")}
               </p>
             </div>
           </div>
