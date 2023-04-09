@@ -49,7 +49,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className="app pt-16">
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <Routes>
@@ -72,6 +72,7 @@ function App() {
               activeCountry={activeCountry}
               setActiveCountry={setActiveCountry}
               darkMode={darkMode}
+              isLoading={isLoading}
               setLoading={setLoading}
             />
           }

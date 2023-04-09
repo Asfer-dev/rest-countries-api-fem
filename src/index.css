@@ -33,7 +33,7 @@
   }
 
   .container {
-    padding: 1.5rem;
+    padding-inline: 1.5rem;
     width: min(1150px, 100vw - 2rem);
     margin-inline: auto;
   }

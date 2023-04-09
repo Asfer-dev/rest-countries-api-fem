@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const Details = ({ activeCountry, setActiveCountry, darkMode, setLoading }) => {
+const Details = ({
+  activeCountry,
+  setActiveCountry,
+  darkMode,
+  isLoading,
+  setLoading,
+}) => {
   const {
     flagImg,
     flagAlt,
@@ -45,6 +51,32 @@ const Details = ({ activeCountry, setActiveCountry, darkMode, setLoading }) => {
       setLoading(false);
     });
   };
+
+  if (isLoading) {
+    return (
+      <div className="container">
+        <Link to="/">
+          <button className=" my-12 bg-white dark:bg-elements-dark px-6 py-2 font-semibold rounded-md shadow-md">
+            {darkMode ? (
+              <FontAwesomeIcon
+                icon={faArrowLeftLong}
+                style={{ color: "#fff" }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faArrowLeftLong}
+                style={{ color: "hsl(200, 15%, 8%)" }}
+              />
+            )}
+            <span className="ml-4">Back</span>
+          </button>
+        </Link>
+        <div className="flex justify-center items-center">
+          <h1 className="text-2xl font-semibold">Loading...</h1>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="details-page container">

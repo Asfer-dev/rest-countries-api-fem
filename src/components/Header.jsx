@@ -14,7 +14,7 @@ const Header = ({ darkMode, setDarkMode }) => {
   }, [darkMode]);
 
   return (
-    <header className="bg-white dark:bg-elements-dark py-3 shadow-default">
+    <header className="bg-white dark:bg-elements-dark py-5 shadow-default fixed w-screen top-0">
       <div className="container flex">
         <h1 className="banner text-xl sm:text-2xl font-extrabold">
           Where in the world?
