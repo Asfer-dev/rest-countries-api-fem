@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;500;600;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: background 300ms;
+  }
+
+  body {
+    @apply font-primary text-body-text dark:text-white bg-background dark:bg-background-dark selection:bg-slate-200 selection:dark:text-body-text;
+  }
+
+  p {
+    @apply mb-1;
+  }
+
+  b {
+    @apply font-semibold;
+  }
+
+  .shadow-default {
+    @apply shadow-md shadow-gray-500/10 dark:shadow-gray-900/40;
+  }
+
+  .card {
+    @apply w-[320px] lg:w-auto bg-white dark:bg-elements-dark rounded-md shadow-default hover:shadow-lg;
+  }
+
+  .container {
+    padding: 1.5rem;
+    width: min(1150px, 100vw - 2rem);
+    margin-inline: auto;
+  }
+}
