@@ -63,6 +63,7 @@ const Countries = ({
   setActiveCountry,
   isLoading,
   setLoading,
+  darkMode,
 }) => {
   if (isLoading) {
     return (
@@ -70,6 +71,7 @@ const Countries = ({
         <InputArea
           setCountriesArray={setCountriesArray}
           setLoading={setLoading}
+          darkMode={darkMode}
         />
         <div className="container flex justify-center">
           <h1 className="text-2xl font-semibold">Loading...</h1>
@@ -83,6 +85,7 @@ const Countries = ({
       <InputArea
         setCountriesArray={setCountriesArray}
         setLoading={setLoading}
+        darkMode={darkMode}
       />
       <div className="countries-container container grid md:grid-cols-2 lg:grid-cols-4 gap-16 justify-center items-center content-center">
         {countriesArray &&

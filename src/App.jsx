@@ -61,6 +61,7 @@ function App() {
               setActiveCountry={setActiveCountry}
               isLoading={isLoading}
               setLoading={setLoading}
+              darkMode={darkMode}
             />
           }
         />
