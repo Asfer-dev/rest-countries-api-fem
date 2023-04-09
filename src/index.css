@@ -29,7 +29,7 @@
   }
 
   .card {
-    @apply w-[320px] lg:w-auto bg-white dark:bg-elements-dark rounded-md shadow-default hover:shadow-lg;
+    @apply w-[320px] h-full lg:w-auto bg-white dark:bg-elements-dark rounded-md shadow-default hover:shadow-lg;
   }
 
   .container {
